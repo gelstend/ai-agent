@@ -1,0 +1,7 @@
+[jay_zhang_a800_1]
+ip=117.50.195.188
+passwd=w1ynd2AK3t58640z
+
+[jay_zhang_a800_2]
+ip=117.50.245.217
+passwd=BT1eL7r3l0564V9I
