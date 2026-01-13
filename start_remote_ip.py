@@ -9,10 +9,10 @@ config_path = "./config.txt"
 config = read_config(config_path)
 
 # ===== 服务器信息 =====
-HOST = config["jay_zhang_a800_2"]["ip"]
+HOST = config["jay_zhang_h20_1"]["ip"]
 PORT = 23
 USERNAME = "root"
-PASSWORD = config["jay_zhang_a800_2"]["passwd"]
+PASSWORD = config["jay_zhang_h20_1"]["passwd"]
 
 # ===== 顺序执行的命令 =====
 commands = [

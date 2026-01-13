@@ -7,11 +7,11 @@ import time
 from typing import Dict, Tuple, Optional
 from common_script import read_config
 
-config_path = "./config.txt"
+config_path = r"C:\Users\jst handsome\Desktop\PROJECTS\agent_git_hub\ai-agent\config.txt"
 config = read_config(config_path)
 
 # 配置
-SERVER_IP = config["jay_zhang_a800_2"]["ip"]
+SERVER_IP = config["jay_zhang_h20_1"]["ip"]
 PORT = 8000
 BASE_URL = f"http://{SERVER_IP}:{PORT}/v1"
 
@@ -26,6 +26,8 @@ THINK_PATTERN = re.compile(
     re.DOTALL | re.IGNORECASE
 )
 
+# 默认系统人设
+sys_prompt_demo = "你是一个乐于助人的小机器人，叫233，耐心，谨慎的回答用户的问题~"
 
 # vllm服务启动查询
 def wait_for_service_ready(
@@ -149,5 +151,23 @@ def main():
     print(context)
 
 
+def get_model_response(user_input, system_input=sys_prompt_demo):
+    wait_for_service_ready(BASE_URL)
+
+    payload = build_payload(
+        system_input=system_input,
+        user_input=user_input,
+        model=MODEL_NAME
+    )
+
+    response_json = chat_completion(payload)
+
+    think, context = parse_response(response_json)
+    return context.split("</think>")[-1].strip()
+
+
 if __name__ == "__main__":
-    main()
+    user_input = "你好，简单做个自我介绍"
+    model_response = get_model_response(user_input)
+    print(model_response)
+

@@ -5,3 +5,7 @@ passwd=w1ynd2AK3t58640z
 [jay_zhang_a800_2]
 ip=117.50.245.217
 passwd=BT1eL7r3l0564V9I
+
+[jay_zhang_h20_1]
+ip=117.50.199.201
+passwd=yG3nl1vm4w5698x7
